@@ -15,7 +15,7 @@ import com.jiahuaandroid.h_mvp.databinding.ActivityMainBinding;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends BaseActivity<MainView,MainPresenter> implements SwipItemTouchCallback.OnDragListener,MainView {
+public class MainActivity extends BaseActivity<MainPresenter> implements SwipItemTouchCallback.OnDragListener,MainView {
     private MainActivity self = MainActivity.this;
     private ActivityMainBinding binding;
     private List<String> data;
@@ -79,7 +79,7 @@ public class MainActivity extends BaseActivity<MainView,MainPresenter> implement
     }
 
     @Override
-    public void setData(ArrayList<String> list) {
+    public void setData(List<String> list) {
         data.addAll(list);
         adapter.notifyDataSetChanged();
     }

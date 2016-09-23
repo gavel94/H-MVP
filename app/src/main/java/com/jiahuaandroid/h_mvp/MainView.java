@@ -3,7 +3,7 @@ package com.jiahuaandroid.h_mvp;
 
 import com.jiahuaandroid.h_mvp.core.mvp.MvpView;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by jhhuang on 2016/5/18.
@@ -16,5 +16,5 @@ public interface MainView extends MvpView {
      * 已经获取到数据，需要MainActivity显示数据
      * @param list
      */
-    void setData(ArrayList<String> list);
+    void setData(List<String> list);
 }

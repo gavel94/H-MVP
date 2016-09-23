@@ -48,7 +48,7 @@ public class MainPresenter extends BasePresenter<MainView> {
         /**
          * 基类使用了弱引用，每次使用之前应该判空，防止莫名空指针
          */
-        if (getMvpView() != null) {
+        if (isViewAttached()) {
             /**
              * Presenter需要MainActivity帮助
              */

@@ -12,15 +12,17 @@ import com.jiahuaandroid.h_mvp.core.mvp.MvpView;
  * QQ:781913268
  * Description：BaseActivity
  */
-public abstract class BaseActivity<V extends MvpView,T extends BasePresenter<V>> extends AppCompatActivity {
+public abstract class BaseActivity<T extends BasePresenter> extends AppCompatActivity implements MvpView
+{
     protected T mPresenter;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         getBinding();
         mPresenter = createPresenter();
-        mPresenter.attachView((V)this);
+        mPresenter.attachView(this);
 
 
         this.initViews(savedInstanceState);
@@ -29,13 +31,15 @@ public abstract class BaseActivity<V extends MvpView,T extends BasePresenter<V>>
     }
 
     @Override
-    protected void onDestroy() {
+    protected void onDestroy()
+    {
         super.onDestroy();
         mPresenter.detachView();
     }
 
     /**
      * create presenter
+     *
      * @return
      */
     protected abstract T createPresenter();
@@ -47,23 +51,27 @@ public abstract class BaseActivity<V extends MvpView,T extends BasePresenter<V>>
 
     /**
      * initialize the view in the layout
+     *
      * @param savedInstanceState
      */
-    protected void initViews(Bundle savedInstanceState) {
+    protected void initViews(Bundle savedInstanceState)
+    {
 
     }
 
     /**
      * initialize the Activity data
      */
-    protected void initData() {
+    protected void initData()
+    {
 
     }
 
     /**
      * initialize
      */
-    protected void initListeners() {
+    protected void initListeners()
+    {
 
     }
 }
